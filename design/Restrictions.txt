@@ -1,0 +1,5 @@
+Here's how the user must enter the values:
+
+Hasło: [\w ]+
+Przypadek: \w
+Przykład: [^\n]+
