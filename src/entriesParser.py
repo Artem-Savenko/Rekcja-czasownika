@@ -24,7 +24,7 @@ def printAll():
 def find(word):
     for entry in allEntries:
         if entry.word.lower() == word.lower():
-            print(entry)
+            print(entry, end='\n\n') # print 2 new lines for readability
             return
     print('Takie hasło nie istnieje!')
 
