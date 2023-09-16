@@ -15,6 +15,9 @@ def parseCommand(command):
     elif cmd == 'usuń':
         if len(command) >= 2:
             delete(command[1])
+    elif cmd == 'przemianuj':
+        if len(command) >= 3:
+            rename(command[1], command[2])
     else:
         print('Nieznana komenda!')
 
@@ -37,5 +40,14 @@ def delete(word):
     for i in range(len(allEntries)):
         if allEntries[i].word.lower() == word:
             allEntries.pop(i)
+            return
+    print('Takie hasło nie istnieje!')
+
+
+def rename(oldWord, newWord):
+    oldWord = oldWord.lower()
+    for i in range(len(allEntries)):
+        if allEntries[i].word.lower() == oldWord:
+            allEntries[i].word = newWord
             return
     print('Takie hasło nie istnieje!')
