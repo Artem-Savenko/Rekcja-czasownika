@@ -1,6 +1,8 @@
 from src.config import allEntries
 
 def parseCommand(command):
+    if len(command) == 0:
+        return
     cmd = command[0].lower()
 
     if cmd == 'wylicz':
@@ -8,9 +10,11 @@ def parseCommand(command):
     elif cmd == 'wyjdź':
         quit()
     elif cmd == 'znajdź':
-        find(command[1])
+        if len(command) >= 2:
+            find(command[1])
     elif cmd == 'usuń':
-        delete(command[1])
+        if len(command) >= 2:
+            delete(command[1])
     else:
         print('Nieznana komenda!')
 
