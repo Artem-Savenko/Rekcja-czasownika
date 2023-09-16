@@ -15,11 +15,11 @@ Always show a greeting message to the user explaining what the program does.
 Put a definition of "rekcja czasownika"
 
 Commands:
-wylicz (list)
-dodaj (add) <hasło> [przypadek] [przykład]
-usuń (delete) <hasło>
-znajdź (find) <hasło>
-przemianuj (rename) <hasło> <hasło nowa nazwa>
+wylicz
+dodaj <hasło> [przypadek] [przykład]
+usuń <hasło>
+znajdź <hasło>
+przemianuj <hasło> <hasło nowa nazwa>
 pomoc [nazwa komendy]
 
 przypadek_dodaj (add case) <hasło> <przypadek - jedna literka>
