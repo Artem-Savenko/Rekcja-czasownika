@@ -1,7 +1,6 @@
 from src.config import allEntries
 
 def parseCommand(command):
-    command = command.split(' ')
     cmd = command[0].lower()
 
     if cmd == 'wylicz':
