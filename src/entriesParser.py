@@ -10,6 +10,8 @@ def parseCommand(command):
         quit()
     elif cmd == 'znajdź':
         find(command[1])
+    elif cmd == 'usuń':
+        delete(command[1])
     else:
         print('Nieznana komenda!')
 
@@ -33,3 +35,4 @@ def delete(word):
         if allEntries[i].word.lower() == word:
             allEntries.pop(i)
             return
+    print('Takie hasło nie istnieje!')
