@@ -24,6 +24,9 @@ class Entry:
         return result
 
     def strToCases(self, str):
+        if str == '':
+            return [Case('')]
+
         list = []
         for c in str:
             list.append(Case(c))

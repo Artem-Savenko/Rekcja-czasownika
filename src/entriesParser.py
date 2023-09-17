@@ -18,7 +18,7 @@ def parseCommand(command):
     elif cmd == 'pomoc':
         showHelp(command[1] if len(command) >= 2 else '')
     elif cmd == 'dodaj':
-        addWord(command[1], command[2], _extractExamples(command))
+        addWord(command[1], command[2] if len(command) >= 3 else '', _extractExamples(command))
     elif cmd == 'usuń':
         if len(command) >= 2:
             delete(command[1])

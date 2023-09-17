@@ -8,9 +8,14 @@ class Case:
                 'J': 'O kim? O czym?',            #'Miejscownik'
                 'W': 'Zwrot do kogoś lub czego?'} #'Wołacz'
 
-    def __init__(self, letter):
-        self.letter = letter.upper()
+    def __init__(self, letter = ''):
+        self.letter = ''
+        if letter in self.allCases:
+            self.letter = letter.upper()
 
     def __repr__(self):
+        if self.letter == '':
+            return '[]'
+
         return '[' + self.letter + ' - ' + Case.allCases[self.letter] + ']'
 
