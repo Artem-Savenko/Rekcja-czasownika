@@ -15,8 +15,10 @@ def parseCommand(command):
     elif cmd == 'znajdź':
         if len(command) >= 2:
             find(command[1])
+    elif cmd == 'pomoc':
+        showHelp(command[1] if len(command) >= 2 else '')
     elif cmd == 'dodaj':
-        addWord(command[1], command[2], extractExamples(command))
+        addWord(command[1], command[2], _extractExamples(command))
     elif cmd == 'usuń':
         if len(command) >= 2:
             delete(command[1])
@@ -61,8 +63,27 @@ def addWord(word, casesStr, examples = []):
     allEntries.append(Entry(word, casesStr, examples))
 
 
-def extractExamples(command):
+def _extractExamples(command):
     if len(command) >= 3:   # 0 = dodaj, 1 = policzyć, 2 = bj, 3 = Policzę ilość przypadków
         return command[3:]
 
     return [] # no examples were provided!
+
+
+def _showCommonHelp():
+    print('Żeby pokazać pomoc dla wybranej komendy, wpisz: pomoc <komenda>'
+          '\n\nLista wszystkich komend:'
+          '\n\twylicz - wyświetla listę wszystkich haseł w słowniku'
+          '\n\tdodaj <hasło> [przypadki] [przykład1] [przykład2] [i t.d.] - dodaje nowe hasło do słownika'
+          '\n\tusuń <hasło> - usuwa hasło z słownika'
+          '\n\tznajdź <hasło> - wyświetla rekcje czasownika dla hasła wraz z przykładami'
+          '\n\tprzemianuj <hasło> <nowe_hasło> - zmienia nazwę hasła na nową'
+          '\n\tpomoc - wyświetla instrukcje co do użycia wszystkich komend tego programu'
+          '\n\tprzypadek_dodaj <hasło> <przypadki> - dodaje kolejny przypadek(ki) do hasła'
+          '\n\tprzypadek_usuń <hasło> <przypadki> - usuwa przypadek(ki) z hasła'
+          '\n\tprzykład_dodaj <hasło> <przykład> - dodaje przykład do hasła'
+          '\n\tprzykład_usuń <hasło> <numer_przykładu> - usuwa przykład z hasła; numer_przykładu jest wyświetlany'
+          ' przy użyciu komendy \'znajdź <hasło>\'')
+
+def showHelp(command = ''):
+    _showCommonHelp()

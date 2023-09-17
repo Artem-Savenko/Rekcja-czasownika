@@ -20,7 +20,7 @@ dodaj <hasło> [przypadki] [przykład1] [przykład2] [etc.]
 usuń <hasło>
 znajdź <hasło>
 przemianuj <hasło> <hasło nowa nazwa>
-pomoc [nazwa komendy]
+pomoc
 
 przypadek_dodaj <hasło> <przypadek - jedna literka>
 przypadek_usuń <hasło> <przypadek - jedna literka>
