@@ -8,21 +8,21 @@ W = Wołacz
 
 Always show a greeting message to the user explaining what the program does.
 	Ten program jest interaktywnym słownikiem, który pomaga zrozumieć rekcje czasowników.
-	Aby wyszukać hasło, wpisz znajdź <hasło> [przypadek] [przykład]
-	Aby usunąć hasło, wpisz usuń <hasło>
+	Aby wyszukać hasło, wpisz: znajdź <hasło>
+	Aby usunąć hasło, wpisz: usuń <hasło>
 	Aby wyświetlić listę wszystkich komend, wpisz: pomoc
 	
 Put a definition of "rekcja czasownika"
 
 Commands:
 wylicz
-dodaj <hasło> [przypadek] [przykład]
+dodaj <hasło> [przypadki] [przykład1] [przykład2] [etc.]
 usuń <hasło>
 znajdź <hasło>
 przemianuj <hasło> <hasło nowa nazwa>
 pomoc [nazwa komendy]
 
-przypadek_dodaj (add case) <hasło> <przypadek - jedna literka>
-przypadek_usuń (delete case) <hasło> <przypadek - jedna literka>
-przykład_dodaj (add example) <hasło> <przykład>
-przykład_usuń (delete example) <hasło> <numer przykładu>
+przypadek_dodaj <hasło> <przypadek - jedna literka>
+przypadek_usuń <hasło> <przypadek - jedna literka>
+przykład_dodaj <hasło> <przykład>
+przykład_usuń <hasło> <numer przykładu>
