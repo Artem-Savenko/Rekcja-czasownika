@@ -1,9 +1,9 @@
 from src.case import Case
 
 class Entry:
-    def __init__(self, word, cases, examples):
+    def __init__(self, word, casesStr, examples):
         self.word = word
-        self.cases = self.strToCases(cases)
+        self.cases = self.strToCases(casesStr)
         self.examples = examples
 
     def __repr__(self):
