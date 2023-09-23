@@ -16,7 +16,7 @@ def parseCommand(command):
         if len(command) >= 2:
             find(command[1])
     elif cmd == 'pomoc':
-        showHelp(command[1] if len(command) >= 2 else '')
+        showHelp()
     elif cmd == 'dodaj':
         addWord(command[1], command[2] if len(command) >= 3 else '', _extractExamples(command))
     elif cmd == 'usuń':
@@ -70,9 +70,8 @@ def _extractExamples(command):
     return [] # no examples were provided!
 
 
-def _showCommonHelp():
-    print('Żeby pokazać pomoc dla wybranej komendy, wpisz: pomoc <komenda>'
-          '\n\nLista wszystkich komend:'
+def showHelp():
+    print('Lista wszystkich komend:'
           '\n\twylicz - wyświetla listę wszystkich haseł w słowniku'
           '\n\tdodaj <hasło> [przypadki] [przykład1] [przykład2] [i t.d.] - dodaje nowe hasło do słownika'
           '\n\tusuń <hasło> - usuwa hasło z słownika'
@@ -84,6 +83,3 @@ def _showCommonHelp():
           '\n\tprzykład_dodaj <hasło> <przykład> - dodaje przykład do hasła'
           '\n\tprzykład_usuń <hasło> <numer_przykładu> - usuwa przykład z hasła; numer_przykładu jest wyświetlany'
           ' przy użyciu komendy \'znajdź <hasło>\'')
-
-def showHelp(command = ''):
-    _showCommonHelp()
