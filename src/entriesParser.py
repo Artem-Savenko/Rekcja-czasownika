@@ -3,6 +3,21 @@ from src.config import allEntries
 from src.entry import Entry
 
 
+def findWord(word):
+    word = word.lower()
+    for entry in allEntries:
+        if word == entry.word.lower():
+            return entry
+    return None
+
+def addCases(word, cases):
+    entry = findWord(word)
+    if entry is None:
+        return
+
+    entry.addCases(cases)
+
+
 def parseCommand(command):
     if len(command) == 0:
         return
@@ -22,6 +37,9 @@ def parseCommand(command):
     elif cmd == 'usuń':
         if len(command) >= 2:
             delete(command[1])
+    elif cmd == 'przypadek_dodaj':
+        if len(command) >= 3:
+            addCases(command[1], command[2])
     elif cmd == 'przemianuj':
         if len(command) >= 3:
             rename(command[1], command[2])
