@@ -10,7 +10,7 @@ class Case:
 
     def __init__(self, letter = ''):
         self.letter = ''
-        if letter in self.allCases:
+        if letter.upper() in self.allCases:
             self.letter = letter.upper()
 
     def __repr__(self):
@@ -18,4 +18,9 @@ class Case:
             return '[]'
 
         return '[' + self.letter + ' - ' + Case.allCases[self.letter] + ']'
+
+    @staticmethod
+    def extractValidCasesFromStr(str):
+        str = str.upper()
+        return [case for case in Case.allCases if case in str]
 

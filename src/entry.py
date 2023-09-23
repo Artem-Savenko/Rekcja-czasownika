@@ -28,6 +28,7 @@ class Entry:
             return [Case('')]
 
         list = []
-        for c in str:
+        valids = Case.extractValidCasesFromStr(str)
+        for c in valids:
             list.append(Case(c))
         return list
