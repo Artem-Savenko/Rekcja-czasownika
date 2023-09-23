@@ -20,7 +20,5 @@ class Case:
         return '[' + self.letter + ' - ' + Case.allCases[self.letter] + ']'
 
     @staticmethod
-    def extractValidCasesFromStr(str):
-        str = str.upper()
-        return [case for case in Case.allCases if case in str]
-
+    def getValidCasesSet():
+        return set(Case.allCases.keys())

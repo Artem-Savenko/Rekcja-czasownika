@@ -1,20 +1,21 @@
 from src.case import Case
 
 class Entry:
+    # Class Entry is a class that represents a single word with cases and examples assigned to it.
+    # Attribute 'word' is simply a string, that represents the entry
+    # Attribute 'cases' is a set of upper-case letters (it can be empty too) that represents the cases
+    # assigned to this entry. DO NOT use this attribute directly! Use addCases() or removeCases() instead.
+    # Attribute 'examples' is a list of strings where each string is an example
     def __init__(self, word, casesStr, examples):
         self.word = word
-        self.addCases(casesStr)
         self.examples = examples
+
+        self.cases = set()
+        self.addCases(casesStr)
 
     def __repr__(self):
         result = '*' *50 + '\n'
-        cases = tuple(self.cases)
-        result += self.word + '    ' + cases[0].__repr__()
-
-        # If we have multiple cases:
-        if len(cases) > 1:
-            for case in cases[1:]:
-                result += '\n' + ' ' * (len(self.word) + 4) + case.__repr__()
+        result += self.getWordAndCasesStr()
 
         # Examples part
         result += '\n' + '-' *50
@@ -25,15 +26,22 @@ class Entry:
         return result
 
     def addCases(self, casesStr):
-        # after converting cases, remove duplicates!
-        self.cases = set(self.strToCases(casesStr))
+        for letter in casesStr:
+            self.cases.add(letter.upper())
+        self.cases = self.cases.intersection(Case.getValidCasesSet())
 
-    def strToCases(self, str):
-        if str == '':
-            return [Case('')]
+    def getWordAndCasesStr(self):
+        cases = tuple(self.cases) # convert to a tuple, so we can iterate by indices
+        result = ''
+        result += self.word + '    '
+        if len(cases) >= 1:
+            result += Case(cases[0]).__repr__()
+        else:
+            result += '[]'
 
-        list = []
-        valids = Case.extractValidCasesFromStr(str)
-        for c in valids:
-            list.append(Case(c))
-        return list
+        # If we have multiple cases:
+        if len(cases) > 1:
+            for case in cases[1:]:
+                result += '\n' + ' ' * (len(self.word) + 4) + Case(case).__repr__()
+
+        return result
