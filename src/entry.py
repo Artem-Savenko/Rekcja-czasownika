@@ -30,6 +30,10 @@ class Entry:
             self.cases.add(letter.upper())
         self.cases = self.cases.intersection(Case.getValidCasesSet())
 
+    def removeCases(self, casesStr):
+        for case in casesStr:
+            self.cases.discard(case.upper())
+
     def getWordAndCasesStr(self):
         cases = tuple(self.cases) # convert to a tuple, so we can iterate by indices
         result = ''

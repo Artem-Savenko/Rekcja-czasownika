@@ -18,6 +18,14 @@ def addCases(word, cases):
     entry.addCases(cases)
 
 
+def deleteCases(word, cases):
+    entry = findWord(word)
+    if entry is None:
+        return
+
+    entry.removeCases(cases)
+
+
 def parseCommand(command):
     if len(command) == 0:
         return
@@ -37,6 +45,9 @@ def parseCommand(command):
     elif cmd == 'usuń':
         if len(command) >= 2:
             delete(command[1])
+    elif cmd == 'przypadek_usuń':
+        if len(command) >= 2:
+            deleteCases(command[1], command[2])
     elif cmd == 'przypadek_dodaj':
         if len(command) >= 3:
             addCases(command[1], command[2])
