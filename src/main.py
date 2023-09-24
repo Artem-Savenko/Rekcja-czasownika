@@ -1,8 +1,14 @@
 from src import config
 from src import entriesParser as parser
+import pickle
 import shlex
 
 config.init()  # init global list allEntries
+
+try:
+    config.allEntries = pickle.load(open('entries.txt', 'rb'))
+except:
+    config.allEntries = list()
 
 print('=' * 10 + ' REKCJA CZASOWNIKA ' + '=' * 10 +
       '\nTen program jest interaktywnym słownikiem, w którym możesz przechowywać rekcje czasowników.'

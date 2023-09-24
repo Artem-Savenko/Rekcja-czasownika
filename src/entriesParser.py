@@ -1,5 +1,7 @@
+import pickle
 from src import config
 from src.entry import Entry
+
 
 
 def findWord(word):
@@ -61,6 +63,7 @@ def parseCommand(command):
     if cmd == 'wylicz':
         printAll()
     elif cmd == 'wyjdź':
+        pickle.dump(config.allEntries, open('entries.txt', 'wb'))
         quit()
     elif cmd == 'znajdź':
         if len(command) >= 2:
