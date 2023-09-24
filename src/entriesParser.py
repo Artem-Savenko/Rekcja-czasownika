@@ -34,6 +34,25 @@ def addExamples(word, examples):
     for ex in examples:
         entry.examples.append(ex)
 
+def removeExamples(word, exIndexes):
+    entry = findWord(word)
+    if entry is None:
+        return
+
+    # convert the list to sorted integers
+    indexes = set()
+    for i in exIndexes:
+        try:
+            indexes.add(int(i) -1)   #-1 because user provides 1-based indexes
+        except ValueError:
+            pass    # ignore non-ints
+    indexes = list(indexes)
+    indexes.sort()
+    indexes.reverse()
+
+    for i in indexes:
+        if 0 <= i < len(entry.examples):
+            entry.examples.pop(i)
 
 def parseCommand(command):
     if len(command) == 0:
@@ -57,6 +76,9 @@ def parseCommand(command):
     elif cmd == 'przykład_dodaj':
         if len(command) >= 2:
             addExamples(command[1], command[2:])
+    elif cmd == 'przykład_usuń':
+        if len(command) >= 2:
+            removeExamples(command[1], command[2:])
     elif cmd == 'przypadek_usuń':
         if len(command) >= 2:
             deleteCases(command[1], command[2])
