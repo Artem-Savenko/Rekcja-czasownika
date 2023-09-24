@@ -26,6 +26,15 @@ def deleteCases(word, cases):
     entry.removeCases(cases)
 
 
+def addExamples(word, examples):
+    entry = findWord(word)
+    if entry is None:
+        return
+
+    for ex in examples:
+        entry.examples.append(ex)
+
+
 def parseCommand(command):
     if len(command) == 0:
         return
@@ -45,6 +54,9 @@ def parseCommand(command):
     elif cmd == 'usuń':
         if len(command) >= 2:
             delete(command[1])
+    elif cmd == 'przykład_dodaj':
+        if len(command) >= 2:
+            addExamples(command[1], command[2:])
     elif cmd == 'przypadek_usuń':
         if len(command) >= 2:
             deleteCases(command[1], command[2])
