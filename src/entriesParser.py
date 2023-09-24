@@ -121,6 +121,6 @@ def showHelp():
           '\n\tpomoc - wyświetla instrukcje co do użycia wszystkich komend tego programu'
           '\n\tprzypadek_dodaj <hasło> <przypadki> - dodaje kolejny przypadek(ki) do hasła'
           '\n\tprzypadek_usuń <hasło> <przypadki> - usuwa przypadek(ki) z hasła'
-          '\n\tprzykład_dodaj <hasło> <przykład> - dodaje przykład do hasła'
-          '\n\tprzykład_usuń <hasło> <numer_przykładu> - usuwa przykład z hasła; numer_przykładu jest wyświetlany'
+          '\n\tprzykład_dodaj <hasło> <przykład1> [przykład2] [...] - dodaje przykład(y) do hasła'
+          '\n\tprzykład_usuń <hasło> <numer_przykładu 1> [numer_przykładu 2] [...] - usuwa przykład(y) z hasła; numer_przykładu jest wyświetlany'
           ' przy użyciu komendy \'znajdź <hasło>\'')
