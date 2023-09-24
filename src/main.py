@@ -1,9 +1,8 @@
-from src.config import allEntries
-from src import entry
+from src import config
 from src import entriesParser as parser
 import shlex
 
-allEntries.append(entry.Entry('Myśleć', 'djn', ['Lubię swego kota', 'Może pomyślę nad tym...']))
+config.init()  # init global list allEntries
 
 print('=' * 10 + ' REKCJA CZASOWNIKA ' + '=' * 10 +
     '\nTen program jest interaktywnym słownikiem, w którym możesz przechowywać rekcje czasowników.'

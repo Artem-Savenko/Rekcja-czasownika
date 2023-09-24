@@ -1,11 +1,10 @@
-from src.case import Case
-from src.config import allEntries
+from src import config
 from src.entry import Entry
 
 
 def findWord(word):
     word = word.lower()
-    for entry in allEntries:
+    for entry in config.allEntries:
         if word == entry.word.lower():
             return entry
     return None
@@ -92,13 +91,13 @@ def parseCommand(command):
         print('Nieznana komenda!')
 
 def printAll():
-    for e in allEntries:
+    for e in config.allEntries:
         print(e.word)
     print('\n', end="")
 
 # Finds and prints a word
 def find(word):
-    for entry in allEntries:
+    for entry in config.allEntries:
         if entry.word.lower() == word.lower():
             print(entry, end='\n\n') # print 2 new lines for readability
             return
@@ -107,23 +106,23 @@ def find(word):
 
 def delete(word):
     word = word.lower()
-    for i in range(len(allEntries)):
-        if allEntries[i].word.lower() == word:
-            allEntries.pop(i)
+    for i in range(len(config.allEntries)):
+        if config.allEntries[i].word.lower() == word:
+            config.allEntries.pop(i)
             return
     print('Takie hasło nie istnieje!')
 
 
 def rename(oldWord, newWord):
     oldWord = oldWord.lower()
-    for i in range(len(allEntries)):
-        if allEntries[i].word.lower() == oldWord:
-            allEntries[i].word = newWord
+    for i in range(len(config.allEntries)):
+        if config.allEntries[i].word.lower() == oldWord:
+            config.allEntries[i].word = newWord
             return
     print('Takie hasło nie istnieje!')
 
 def addWord(word, casesStr, examples = []):
-    allEntries.append(Entry(word, casesStr, examples))
+    config.allEntries.append(Entry(word, casesStr, examples))
 
 
 def _extractExamples(command):
