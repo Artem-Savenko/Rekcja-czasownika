@@ -1,5 +1,5 @@
-from src import config
-from src import entriesParser as parser
+import config
+import entriesParser as parser
 import pickle
 import shlex
 

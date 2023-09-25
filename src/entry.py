@@ -1,4 +1,4 @@
-from src.case import Case
+from case import Case
 
 class Entry:
     # Class Entry is a class that represents a single word with cases and examples assigned to it.

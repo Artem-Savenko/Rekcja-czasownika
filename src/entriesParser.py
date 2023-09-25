@@ -1,6 +1,6 @@
 import pickle
-from src import config
-from src.entry import Entry
+import config
+from entry import Entry
 
 
 
