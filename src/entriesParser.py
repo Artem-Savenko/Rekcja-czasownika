@@ -73,6 +73,8 @@ def parseCommand(command):
             find(command[1])
     elif arg0 == 'pomoc':
         showHelp()
+    elif arg0 == 'przypadki':
+        showCasesHelp()
     elif arg0 == 'dodaj':
         addWord(command[1], command[2] if len(command) >= 3 else '', _extractExamples(command))
     elif arg0 == 'usuń':
@@ -154,6 +156,7 @@ def showHelp():
           '\n\tznajdź <hasło> - wyświetla rekcje czasownika dla hasła wraz z przykładami'
           '\n\tprzemianuj <hasło> <nowe_hasło> - zmienia nazwę hasła na nową'
           '\n\tpomoc - wyświetla instrukcje co do użycia wszystkich komend tego programu'
+          '\n\tprzypadki - wyświetla instrukcje co do dodania/usuwania przypadków wraz z listą wszystkich przypadków'
           '\n\tprzypadek_dodaj <hasło> <przypadki> - dodaje kolejny przypadek(ki) do hasła'
           '\n\tprzypadek_usuń <hasło> <przypadki> - usuwa przypadek(ki) z hasła'
           '\n\tprzykład_dodaj <hasło> <przykład1> [przykład2] [...] - dodaje przykład(y) do hasła'
@@ -179,3 +182,16 @@ def loadEntriesFromFile():
 
 def saveEntriesToFile():
     pickle.dump(config.allEntries, open('entries.txt', 'wb'))
+
+
+def showCasesHelp():
+    print('Żeby dodać/usunąć przypadki do/z hasła, trzeba wpisać pierwszą literę przypadku '
+          '(lub kilka liter pod rząd) na przykład \'d\' dla Dopełniacza lub \'dcb\' dla '
+          'Dopełniacza, Celownika i Biernika.'
+          '\n\tM = Mianownik (kto? co?)'
+          '\n\tD = Dopełniacz (kogo? czego?)'
+          '\n\tC = Celownik (komu? czemu?)'
+          '\n\tB = Biernik (kogo? co?)'
+          '\n\tN = Narzędnik (z kim? z czym?)'
+          '\n\tJ = mieJscownik (o kim? o czym?)'
+          '\n\tW = Wołacz (ojcze!)')
