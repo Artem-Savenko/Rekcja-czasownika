@@ -1,5 +1,6 @@
 from case import Case
 
+
 class Entry:
     # Class Entry is a class that represents a single word with cases and examples assigned to it.
     # Attribute 'word' is simply a string, that represents the entry
@@ -14,14 +15,14 @@ class Entry:
         self.addCases(casesStr)
 
     def __repr__(self):
-        result = '*' *50 + '\n'
+        result = '*' * 50 + '\n'
         result += self.getWordAndCasesStr()
 
         # Examples part
-        result += '\n' + '-' *50
+        result += '\n' + '-' * 50
         result += '\nPrzykłady:'
         for i in range(len(self.examples)):
-            result += '\n' + str(i +1) + '. ' + self.examples[i]
+            result += '\n' + str(i + 1) + '. ' + self.examples[i]
 
         return result
 
@@ -35,15 +36,14 @@ class Entry:
             self.cases.discard(case.upper())
 
     def getWordAndCasesStr(self):
-        cases = tuple(self.cases) # convert to a tuple, so we can iterate by indices
-        result = ''
-        result += self.word + '    '
-        if len(cases) >= 1:
+        cases = tuple(self.cases)  # convert to a tuple, so we can iterate by indexes
+        result = self.word + '    '
+        if len(cases) >= 1:  # print 1st case
             result += Case(cases[0]).__repr__()
         else:
             result += '[]'
 
-        # If we have multiple cases:
+        # print the rest of the cases:
         if len(cases) > 1:
             for case in cases[1:]:
                 result += '\n' + ' ' * (len(self.word) + 4) + Case(case).__repr__()

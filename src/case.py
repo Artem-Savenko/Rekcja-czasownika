@@ -1,4 +1,3 @@
-
 class Case:
     allCases = {'M': 'Kto? Co?',                  #'Mianownik'
                 'D': 'Kogo? Czego?',              #'Dopełniacz'
@@ -9,9 +8,10 @@ class Case:
                 'W': 'Zwrot do kogoś lub czego?'} #'Wołacz'
 
     def __init__(self, letter = ''):
-        self.letter = ''
         if letter.upper() in self.allCases:
             self.letter = letter.upper()
+        else:
+            self.letter = ''
 
     def __repr__(self):
         if self.letter == '':
