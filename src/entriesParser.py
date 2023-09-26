@@ -132,6 +132,10 @@ def rename(oldWord, newWord):
 
 
 def addWord(word, casesStr, examples=[]):
+    if _findWord(word) is not None:
+        print('Takie hasło już istnieje!')
+        return
+
     config.allEntries.append(Entry(word, casesStr, examples))
 
 
